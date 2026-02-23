@@ -1,4 +1,7 @@
-import qrcode
+try: 
+    import qrcode
+except ImportError:    
+    print("The qrcode library is not installed. Please install it using 'pip install qrcode' and try again.")
 #Function to generate QR code
 def generate_qr_code(url,file_name):
 #Create QR code instance
