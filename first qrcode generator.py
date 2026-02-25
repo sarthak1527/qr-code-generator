@@ -15,5 +15,13 @@ def generate_qr_code(url,file_name):
     img.save(file_name)     
 #enter the url and file name to save the QR code
 url=input("Enter the URL to generate QR code: ")
+if not url.strip():
+     print("Please Enter a Valid URL")
+     exit()
 file_name=input("Enter the file name to save the QR code (with .png extension): ")
+if not file_name.strip():
+     print("Please don't leave blank space")
+     exit()
+if not file_name.endswith(".png"):
+    file_name+=".png"
 generate_qr_code(url,file_name) 
