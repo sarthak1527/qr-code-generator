@@ -1,2 +1,2 @@
 # QR CODE GENERATOR 
-A simple Python program to genberate QR code from the URLs. This tool allows you to quickly create QR codes that can be scanned using any scanner or phones.
+A simple Python program to generate QR codes from any URL or text. The generated QR codes can be saved as PNG files and are ready to be scanned by any QR code reader.
