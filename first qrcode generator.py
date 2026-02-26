@@ -12,7 +12,11 @@ def generate_qr_code(url,file_name):
     qr.make(fit=True)
     #Create an image from the QR code
     img=qr.make_image(fill_color="black",back_color="white")
-    img.save(file_name)     
+   try:
+    img.save(file_name)
+    print(f"QR code saved as '{file_name}'")
+except Exception as e:
+    print(f"Error saving QR code: {e}")     
 #enter the url and file name to save the QR code
 url=input("Enter the URL to generate QR code: ")
 if not url.strip():
