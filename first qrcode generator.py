@@ -6,14 +6,12 @@ except ImportError:
     exit()
 
 # Function to generate QR code
-def generate_qr_code(url, file_name):
+def generate_qr_code(data, file_name):
     # Create QR code instance
     qr = qrcode.QRCode(version=1, box_size=10, border=5)
-    qr.add_data(url)
-
+    qr.add_data(data)
     # Generate QR code
     qr.make(fit=True)
-
     # Create image
     img = qr.make_image(fill_color="black", back_color="white")
 
@@ -26,18 +24,17 @@ def generate_qr_code(url, file_name):
 
 def main():
     # Enter the URL
-    url = input("Enter the URL to generate QR code: ").strip()
-    if not url:
-        print("Please Enter a Valid URL")
-        return
-
+   data = input("Enter text or URL to generate QR code: ").strip()
+if not data:
+    print("Please enter some text or URL")
+    return
     # Enter file name
     file_name = input("Enter the file name to save the QR code: ").strip()
-    if not file_name:
+if not file_name:
         print("Please don't leave blank space")
         return
 
-    if not file_name.endswith(".png"):
+if not file_name.endswith(".png"):
         file_name += ".png"
 
     generate_qr_code(url, file_name)
