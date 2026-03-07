@@ -5,13 +5,16 @@ except ImportError:
     print("Install it using: pip install qrcode")
     exit()
 
+
 # Function to generate QR code
 def generate_qr_code(data, file_name):
     # Create QR code instance
     qr = qrcode.QRCode(version=1, box_size=10, border=5)
     qr.add_data(data)
+
     # Generate QR code
     qr.make(fit=True)
+
     # Create image
     img = qr.make_image(fill_color="black", back_color="white")
 
@@ -23,21 +26,23 @@ def generate_qr_code(data, file_name):
 
 
 def main():
-    # Enter the URL
-   data = input("Enter text or URL to generate QR code: ").strip()
-if not data:
-    print("Please enter some text or URL")
-    return
+    # Enter the text or URL
+    data = input("Enter text or URL to generate QR code: ").strip()
+    if not data:
+        print("Please enter some text or URL")
+        return
+
     # Enter file name
     file_name = input("Enter the file name to save the QR code: ").strip()
-if not file_name:
+    if not file_name:
         print("Please don't leave blank space")
         return
 
-if not file_name.endswith(".png"):
+    # Ensure .png extension
+    if not file_name.endswith(".png"):
         file_name += ".png"
 
-    generate_qr_code(url, file_name)
+    generate_qr_code(data, file_name)
 
 
 if __name__ == "__main__":
